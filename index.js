@@ -3,7 +3,7 @@ const fs = require('fs');
 const sanitize = require("sanitize-filename");
 const bodyParser = require('body-parser');
 const app = express();
-const port = 3000;
+const port = 80;
 
 app.set('view engine', 'ejs');
 
