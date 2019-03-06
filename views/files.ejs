@@ -1,0 +1,5 @@
+<ul>
+    <% files.forEach(function(file) { %>
+        <li><a href="/getfile/<%= file.filename %>"><%= file.date %></a></li>
+    <% }) %>
+</ul>
