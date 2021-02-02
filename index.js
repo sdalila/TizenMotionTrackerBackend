@@ -26,7 +26,8 @@ app.get('/getfile/:filename', (req, res) => {
 });
 
 app.use(bodyParser.text({
-    type: ["text/csv", "application/csv"]
+    type: ["text/csv", "application/csv"],
+    limit: '100mb'
 }));
 
 app.post('/addcsv', (req, res) => {
