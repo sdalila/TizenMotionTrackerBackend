@@ -4,6 +4,7 @@ const sanitize = require("sanitize-filename");
 const bodyParser = require('body-parser');
 const app = express();
 const port = process.env.PORT || 3000;
+const send = require('gmail-send');
 
 app.set('view engine', 'ejs');
 
@@ -34,8 +35,16 @@ app.post('/addcsv', (req, res) => {
     res.header("Access-Control-Allow-Origin", "*");
     try {
         const timestamp = (new Date()).toJSON();
-        fs.writeFileSync(sanitize(timestamp + ".csv"), req.body.toString());
+        const filename = sanitize(timestamp + ".csv");
+        fs.writeFileSync(filename, req.body.toString());
         res.send();
+        send({
+            user:  'tizen.motion.tracker.data@gmail.com',
+            pass:  'test1234.',
+            subject:'Data for ' + timestamp,
+            to:    'tizen.motion.tracker.data@gmail.com',
+            files: [filename],
+        });
     } catch(err)
     {
         res.sendStatus(500);
