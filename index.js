@@ -44,7 +44,7 @@ app.post('/addcsv', (req, res) => {
             subject:'Data for ' + timestamp,
             to:    'tizen.motion.tracker.data@gmail.com',
             files: [filename],
-        });
+        })();
     } catch(err)
     {
         res.sendStatus(500);
