@@ -39,10 +39,10 @@ app.post('/addcsv', (req, res) => {
         fs.writeFileSync(filename, req.body.toString());
         res.send();
         send({
-            user:  'tizen.motion.tracker.data@gmail.com',
-            pass:  'test1234.',
+            user:  'HRandACCdata.tizen@gmail.com',
+            pass:  'HRandACCdata123.',
             subject:'Data for ' + timestamp,
-            to:    'tizen.motion.tracker.data@gmail.com',
+            to:    'HRandACCdata.tizen@gmail.com',
             files: [filename],
         })();
     } catch(err)
